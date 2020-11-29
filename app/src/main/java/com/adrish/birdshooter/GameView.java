@@ -16,7 +16,31 @@ public class GameView extends SurfaceView implements Runnable
     @Override
     public void run()
     {
+        while(isPlaying)
+        {
+            update();
+            draw();
+            sleep();
+        }
+    }
 
+    public void update()
+    {
+
+    }
+
+    public void draw()
+    {
+
+    }
+
+    public void sleep()
+    {
+        try {
+            Thread.sleep(17);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void resume()
