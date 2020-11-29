@@ -6,6 +6,8 @@ import android.view.SurfaceView;
 public class GameView extends SurfaceView implements Runnable
 {
     private Thread thread;
+    private boolean isPlaying;
+
     public GameView(Context context)
     {
         super(context);
@@ -19,11 +21,18 @@ public class GameView extends SurfaceView implements Runnable
 
     public void resume()
     {
-
+        isPlaying = true;
+        thread = new Thread(this);
+        thread.start();
     }
 
     public void pause()
     {
-        
+        try {
+            isPlaying = false;
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
