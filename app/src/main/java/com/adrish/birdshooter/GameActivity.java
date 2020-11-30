@@ -17,5 +17,21 @@ public class GameActivity extends AppCompatActivity
         getWindowManager().getDefaultDisplay().getSize(point);
 
         gameview = new GameView(this, point.x, point.y);
+
+        setContentView(gameview);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        gameview.pause();
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        gameview.resume();
     }
 }
