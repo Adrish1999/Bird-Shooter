@@ -11,6 +11,7 @@ public class GameView extends SurfaceView implements Runnable
     private boolean isPlaying;
     private int screenX, screenY;
     private Paint paint;
+    private float screenRatiox, screenRatioy;
     private Background background1, background2;
 
     public GameView(Context context, int screenX, int screenY)
@@ -19,6 +20,8 @@ public class GameView extends SurfaceView implements Runnable
 
         this.screenX = screenX;
         this.screenY = screenY;
+
+        screenRatiox = 1920f / screenX;
 
         background1 = new Background(screenX, screenY, getResources());
         background2 = new Background(screenX, screenY, getResources());
